@@ -1,29 +1,60 @@
+import React, { Component } from 'react';
 import './App.css';
-import Aloha from './components/Aloha/index'
+import SelectedUserList from './components/SelectedUserList';
+import UserList from './components/UserList';
 
-function App() {
-  const user = {
-    firstName: "Sasha",
-    url: 'http://placehold.it/100'
+const userDB = [
+
+  {
+    id: 1,
+    firstName: 'John',
+    lastName: 'Snow',
+  },
+  {
+    id: 2,
+    firstName: 'Test',
+    lastName: 'Doe',
+  },
+  {
+    id: 3,
+    firstName: 'Jane',
+    lastName: 'Doe',
+  },
+  {
+    id: 4,
+    firstName: 'Sasha',
+    lastName: 'Doe',
+  },
+  {
+    id: 5,
+    firstName: 'Masha',
+    lastName: 'Doe',
+  },
+]
+
+class App extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      users: userDB.map((u) => ({ ...u, isSelected: false })),
+    }
   }
 
-  const user1 = {
-    firstName: "Masha",
-    url: 'http://placehold.it/100'
-  }
+  setUsers = (newUsers) => this.setState({ users: newUsers })
 
-  const user2 = {
-    firstName: "Dasha",
-    url: 'http://placehold.it/100'
+  render() {
+    const { users } = this.state;
+    return (
+      <>
+        <header>
+          <SelectedUserList users={users} />
+        </header>
+        <main>
+          <UserList users={users} setUsers={this.setUsers} />
+        </main>
+      </>
+    );
   }
-
-  return (
-    <>
-      <Aloha name={user.firstName} photo={user.url} />
-      <Aloha name={user1.firstName} photo={user1.url} />
-      <Aloha name={user2.firstName} photo={user2.url} />
-    </>
-  )
 }
 
 export default App;
