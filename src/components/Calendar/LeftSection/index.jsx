@@ -10,11 +10,12 @@ export default class LeftSectionCalendar extends Component {
   }
 
   render() {
+    const { day, monthStr } = this.props;
     return (
       <>
         <div className={styles.leftSection}>
-          <h3 className={styles.day}>{new Date().toLocaleString('en', { month: 'long' })}</h3>
-          <p>{new Date().getDate()}</p>
+          <h3 className={styles.day}>{monthStr}</h3>
+          <p>{day}</p>
         </div>
       </>
     )

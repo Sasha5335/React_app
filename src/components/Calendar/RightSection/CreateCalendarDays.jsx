@@ -1,36 +1,31 @@
 import React, { Component } from 'react';
 import styles from './RightSection.module.scss';
+
 import { startOfMonth, endOfMonth } from 'date-fns';
 
 export default class CreateCalendarDays extends Component {
-
-  get year() {
-    return this.props.currentData.getFullYear();
-  }
-
-  get month() {
-    return this.props.currentData.getMonth();
-  }
-
-  get day() {
-    return this.props.currentData.getDate();
+  constructor(props) {
+    super(props);
+    this.state = {
+    }
   }
 
   getMarkupCalendarDays = () => {
     const DAYS_IN_WEEK = 7
+    const { day, month, year } = this.props;
     const result = [];
-    const startDayOfMonth = startOfMonth(new Date(this.year, this.month, this.day));
-    const daysInMonth = endOfMonth(new Date(this.year, this.month, this.day));
-    let day = 1;
+    const startDayOfMonth = startOfMonth(new Date(year, month, day));
+    const daysInMonth = endOfMonth(new Date(year, month, day));
+    let startDay = 1;
 
     for (let i = 0; i < (daysInMonth.getDate() + startDayOfMonth.getDate()) / DAYS_IN_WEEK; i++) {
       result[i] = []
       for (let j = 0; j < DAYS_IN_WEEK; j++) {
-        if ((i === 0 && j < startDayOfMonth.getDate()) || day > daysInMonth.getDate()) {
+        if ((i === 0 && j < startDayOfMonth.getDate()) || startDay > daysInMonth.getDate()) {
           result[i][j] = undefined;
         }
         else {
-          result[i][j] = new Date(this.year, this.month, day++).getDate();
+          result[i][j] = new Date(year, month, startDay++).getDate();
         }
       }
     }
@@ -39,13 +34,22 @@ export default class CreateCalendarDays extends Component {
 
   render() {
     const monthDay = this.getMarkupCalendarDays();
+    const { day: currentDay } = this.props;
 
     return (
       <>
-        {monthDay.map((week, index) =>
-          <tr className={styles.days} key={index}>
-            {week.map((day, index) => day === this.day ? <th className={styles.days, styles.thisDay} key={index}>{day}</th> : <th className={styles.days} key={index}>{day}</th>)}
+        {monthDay.map((week, index) => {
+          return <tr className={styles.days} key={index}>
+            {week.map((day, index) => {
+              if (day === currentDay) {
+                return <th className={styles.days, styles.thisDay} key={index}>{day}</th>
+              }
+              else {
+                return <th className={styles.days} key={index}>{day}</th>
+              }
+            })}
           </tr>
+        }
         )}
       </>
     );

@@ -3,21 +3,23 @@ import styles from './RightSection.module.scss';
 import CreateCalendar from './CreateCalendar';
 
 export default class RightSectionCalendar extends Component {
-  state = {
-    currentData: new Date(),
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+    }
+  }
 
   render() {
-    const { currentData } = this.state;
+    const { daysWeek, day, month, monthStr, year } = this.props;
 
     return (
       <>
         <div className={styles.rightSection}>
           <h3 className={styles.monthYear}>
-            {currentData.toLocaleString('en', { month: 'long' })} {currentData.getFullYear()}
+            {monthStr} {year}
           </h3>
           <div className={styles.calendar}>
-            <CreateCalendar currentData={currentData} />
+            <CreateCalendar daysWeek={daysWeek} day={day} month={month} year={year} />
           </div>
         </div>
       </>

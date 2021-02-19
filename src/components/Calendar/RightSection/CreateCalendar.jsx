@@ -7,11 +7,10 @@ export default class CreateCalendar extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      daysWeek: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
     };
   }
   render() {
-    const { daysWeek } = this.state;
+    const { daysWeek, day, month, year } = this.props;
 
     return (
       <>
@@ -22,7 +21,7 @@ export default class CreateCalendar extends Component {
                 <th className={styles.daysWeek} key={index}>{name[0]}</th>
               )}
             </tr>
-            <CreateCalendarDays currentData={this.props.currentData} />
+            <CreateCalendarDays day={day} month={month} year={year} />
           </thead>
         </table>
       </>
