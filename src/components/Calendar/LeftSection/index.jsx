@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import './style.css'
+import styles from './LeftSection.module.scss'
 
 export default class LeftSectionCalendar extends Component {
   constructor(props) {
@@ -12,8 +12,8 @@ export default class LeftSectionCalendar extends Component {
   render() {
     return (
       <>
-        <div className="left-section">
-          <h3 className="day">{new Date().toLocaleString('en', { month: 'long' })}</h3>
+        <div className={styles.leftSection}>
+          <h3 className={styles.day}>{new Date().toLocaleString('en', { month: 'long' })}</h3>
           <p>{new Date().getDate()}</p>
         </div>
       </>

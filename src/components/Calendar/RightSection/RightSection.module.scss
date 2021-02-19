@@ -1,0 +1,40 @@
+@import './../Calendar.module.scss';
+
+.rightSection {
+  @extend %positionSection;
+}
+
+.monthYear {
+  margin-bottom: 37px;
+  font-weight: 700;
+  color: #009991;
+  text-transform: uppercase;
+}
+
+table {
+  width: 300px;
+  margin: 0 auto;
+  font-size: 27px;
+  font-weight: 700;
+}
+
+
+.daysWeek {
+  padding: 10px;
+  color: #EB1B57;
+}
+
+.days {
+  margin-top: 20px;
+  padding: 15px 13px;
+  color: #B7B7B7;
+}
+
+.thisDay {
+  padding: 0;
+  color: #EB1B57;
+  background: #d1d1d1;
+  border-radius: 50%;
+  text-align: center;
+
+}

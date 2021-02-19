@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import styles from './RightSection.module.scss';
 import CreateCalendarDays from './CreateCalendarDays';
 
 
@@ -16,9 +17,9 @@ export default class CreateCalendar extends Component {
       <>
         <table>
           <thead>
-            <tr className="days-week">
+            <tr className={styles.daysWeek}>
               {daysWeek.map((name, index) =>
-                <th className="days-week" key={index}>{name[0]}</th>
+                <th className={styles.daysWeek} key={index}>{name[0]}</th>
               )}
             </tr>
             <CreateCalendarDays currentData={this.props.currentData} />

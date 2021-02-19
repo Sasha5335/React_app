@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import styles from './RightSection.module.scss';
 import { startOfMonth, endOfMonth } from 'date-fns';
 
 export default class CreateCalendarDays extends Component {
@@ -42,8 +43,8 @@ export default class CreateCalendarDays extends Component {
     return (
       <>
         {monthDay.map((week, index) =>
-          <tr className="days" key={index}>
-            {week.map((day, index) => day === this.day ? <th className="this-day" key={index}>{day}</th> : <th className="days" key={index}>{day}</th>)}
+          <tr className={styles.days} key={index}>
+            {week.map((day, index) => day === this.day ? <th className={styles.days, styles.thisDay} key={index}>{day}</th> : <th className={styles.days} key={index}>{day}</th>)}
           </tr>
         )}
       </>

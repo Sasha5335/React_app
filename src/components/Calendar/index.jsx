@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import './style.css'
+import styles from './Calendar.module.scss'
 import LeftSectionCalendar from './LeftSection'
 import RightSectionCalendar from './RightSection'
 
@@ -13,8 +13,8 @@ export default class Calendar extends Component {
   render() {
     return (
       <>
-        <section className="section">
-          <div className="wrapper">
+        <section className={styles.section}>
+          <div className={styles.wrapper}>
             <LeftSectionCalendar />
             <RightSectionCalendar />
           </div>

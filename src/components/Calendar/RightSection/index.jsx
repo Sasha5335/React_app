@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './style.css';
+import styles from './RightSection.module.scss';
 import CreateCalendar from './CreateCalendar';
 
 export default class RightSectionCalendar extends Component {
@@ -12,11 +12,11 @@ export default class RightSectionCalendar extends Component {
 
     return (
       <>
-        <div className="right-section">
-          <h3 className="month-year">
+        <div className={styles.rightSection}>
+          <h3 className={styles.monthYear}>
             {currentData.toLocaleString('en', { month: 'long' })} {currentData.getFullYear()}
           </h3>
-          <div className="calendar">
+          <div className={styles.calendar}>
             <CreateCalendar currentData={currentData} />
           </div>
         </div>

@@ -1,0 +1,20 @@
+@import './../Calendar.module.scss';
+
+.leftSection {
+  @extend %positionSection;
+
+  font-weight: 300;
+  background-color: #38CEC4;
+  color: #ffffff;
+}
+
+.day {
+  font-weight: 300;
+  text-transform: uppercase;
+
+}
+
+.leftSection p {
+  margin: 65px;
+  font-size: 220px;
+}
