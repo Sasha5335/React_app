@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
-import './App.css';
-import Calendar from './components/Calendar'
+import ImageCarusel from './components/ImageCarusel'
 
 
 function App(props) {
   return (
     <>
-      <Calendar />
+      <ImageCarusel />
     </>
   );
 }
