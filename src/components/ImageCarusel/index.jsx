@@ -1,13 +1,12 @@
 import React, { Component } from 'react'
 import styles from './ImageCarusel.module.scss'
 import Slider from './Slider'
-import Description from './Description'
 
 class ImageCarusel extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      slidesImg: [
+      slides: [
         {
           src: 'https://hubblesite.org/files/live/sites/hubble/files/home/hubble-30th-anniversary/images/_images/hubble_30th_images/hubble-30th-hh24.jpg?t=tn1200',
           title: "HH24 'light saber'",
@@ -38,18 +37,40 @@ class ImageCarusel extends Component {
           title: "Whirlpool Galaxy",
           description: "This image of the Whirlpool Galaxy illustrates a spiral galaxy’s grand design, from its curving spiral arms to its yellowish central core.",
         },
-      ]
+      ],
+      currentSlide: 0,
     }
   }
 
+  nextSlide = () => {
+    const { slides, currentSlide } = this.state;
+    this.setState({
+      currentSlide: (currentSlide + 1) % slides.length,
+    });
+  };
+
+  prevSlide = () => {
+    const { slides, currentSlide } = this.state;
+    this.setState({
+      currentSlide:
+        ((currentSlide - 1) + slides.length) % slides.length,
+    });
+  };
+
   render() {
-    const { slidesImg } = this.state;
+    const { slides, currentSlide } = this.state;
     return (
       <>
-        <div className={styles.container}>
-          <div classNameName={styles.controlsСontainer}>
-            <Slider slides={slidesImg.map((slides) => slides)} />
-            <Description />
+        <div className={styles.slidesCarusel}>
+          <div className={styles.container}>
+            <div className={styles.slides}>
+              <button className={styles.slickPrev} onClick={this.prevSlide} >&#8249;</button>
+              <button className={styles.sickNext} onClick={this.nextSlide}>&#8250;</button>
+
+
+              <Slider slides={slides[currentSlide]} />
+
+            </div>
           </div>
         </div>
       </>

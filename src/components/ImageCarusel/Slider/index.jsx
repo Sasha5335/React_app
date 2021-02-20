@@ -8,21 +8,18 @@ export default class Slider extends Component {
     }
   }
 
-
-
-
   render() {
     const { slides } = this.props;
     return (
       <>
-        <button type="button" className={styles.slickPrev} >previous</button>
-        <button type="button" className={styles.slickNext}>next</button>
-        <picture>
-          {slides.map((img, index) => {
-            return <img className={styles.lazyloaded} key={index} src={img.src} alt={img.escription} />
-          })
-          }
-        </picture>
+        <div className={styles.slidesWrapper} >
+          <picture>
+            <img className={styles.cardImg} src={slides.src} alt={slides.title} />
+            <h3 className={styles.cardTitle}>{slides.title}</h3>
+            <p className={styles.cardDescription}>{slides.description}</p>
+            <p><a href="#">Learn More &gt;</a></p>
+          </picture>
+        </div>
       </>
     )
   }

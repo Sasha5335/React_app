@@ -1,0 +1,25 @@
+.slidesCarusel {}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.slides {}
+
+button {
+  display: inline-block;
+  padding: 8px 16px;
+  font-size: 20px;
+  text-align: center;
+  color: #fff;
+  background-color: #5367f8;
+  text-decoration: none;
+  border: 1px solid #5367f8;
+  border-radius: 50%;
+  transition: linear 0.15s;
+}
+
+button:hover {
+  background-color: #6e7efc;
+}
