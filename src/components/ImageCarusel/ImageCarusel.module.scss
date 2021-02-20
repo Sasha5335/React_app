@@ -1,19 +1,41 @@
-.slidesCarusel {}
-
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
+.slidesCarusel {
+  margin: 30px;
 }
 
-.slides {}
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 25px;
+  background: #f5f5f5;
+
+}
+
+.slides {
+  position: relative;
+}
+
+.slickPrev,
+.sickNext {
+  position: absolute;
+  top: 36%;
+}
+
+.slickPrev {
+  left: 20px;
+}
+
+.sickNext {
+  right: 20px;
+}
+
 
 button {
   display: inline-block;
   padding: 8px 16px;
   font-size: 20px;
-  text-align: center;
   color: #fff;
   background-color: #5367f8;
+  text-align: center;
   text-decoration: none;
   border: 1px solid #5367f8;
   border-radius: 50%;

@@ -1,7 +1,25 @@
-.slidesWrapper {}
+.cardImg {
+  max-width: calc(100%);
+}
 
-.cardImg {}
+.cardTitle {
+  margin-top: 30px;
+  margin-bottom: 15px;
+  font-family: "Poppins", sans-serif;
+  font-size: 18px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
 
-.cardTitle {}
+.cardDescription {
+  width: 100%;
+  margin-bottom: 7px;
+  font-size: 18px;
+  font-family: "Merriweather", serif;
+  line-height: 26px;
 
-.cardDescription {}
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+
+}
