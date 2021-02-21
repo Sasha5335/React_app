@@ -5,8 +5,8 @@
 .cardTitle {
   margin-top: 30px;
   margin-bottom: 15px;
-  font-family: "Poppins", sans-serif;
   font-size: 18px;
+  font-weight: 500;
   letter-spacing: 1px;
   text-transform: uppercase;
 }
@@ -15,8 +15,9 @@
   width: 100%;
   margin-bottom: 7px;
   font-size: 18px;
-  font-family: "Merriweather", serif;
-  line-height: 26px;
+  line-height: 20px;
+  font-weight: 300;
+
 
   text-overflow: ellipsis;
   white-space: nowrap;

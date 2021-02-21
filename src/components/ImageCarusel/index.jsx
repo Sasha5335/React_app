@@ -39,6 +39,10 @@ class ImageCarusel extends Component {
         },
       ],
       currentSlide: 0,
+      currentStateSlide: "Slideshow",
+      playSlide: false,
+      timer: 0,
+      interval: 1000,
     }
   }
 
@@ -52,21 +56,77 @@ class ImageCarusel extends Component {
   prevSlide = () => {
     const { slides, currentSlide } = this.state;
     this.setState({
-      currentSlide:
-        ((currentSlide - 1) + slides.length) % slides.length,
+      currentSlide: ((currentSlide - 1) + slides.length) % slides.length,
     });
   };
 
+  slideshow = () => {
+    const { playSlide, timer, interval } = this.state;
+
+    if (playSlide) {
+      clearInterval(timer);
+      console.log(timer)
+      this.setState({
+        playSlide: false,
+        interval: 1000,
+        currentStateSlide: "Slideshow"
+      });
+    }
+    else {
+      const newTimer = setInterval(() => {
+        this.nextSlide();
+      }, interval);
+      this.setState({
+        currentStateSlide: "Stop",
+        playSlide: true,
+        timer: newTimer,
+      });
+    }
+  }
+
+  addInterval = () => {
+    const { playSlide, timer, interval } = this.state;
+
+    if (playSlide === true) {
+      clearInterval(timer);
+      const newTimer = setInterval(() => {
+        this.nextSlide();
+      }, interval);
+      this.setState({
+        interval: interval + 1000,
+        timer: newTimer,
+      })
+    }
+  }
+
+  removeInterval = () => {
+    const { playSlide, timer, interval } = this.state;
+
+    if (playSlide === true) {
+      clearInterval(timer);
+      const newTimer = setInterval(() => {
+        this.nextSlide();
+      }, interval);
+      this.setState({
+        interval: interval - 1000,
+        timer: newTimer,
+      })
+    }
+  }
+
   render() {
-    const { slides, currentSlide } = this.state;
+    const { slides, currentSlide, currentStateSlide } = this.state;
     return (
       <>
         <div className={styles.slidesCarusel}>
           <div className={styles.container}>
             <div className={styles.slides}>
               <button className={styles.slickPrev} onClick={this.prevSlide} >&#8249;</button>
-              <button className={styles.sickNext} onClick={this.nextSlide}>&#8250;</button>
-
+              <button className={styles.slickNext} onClick={this.nextSlide}>&#8250;</button>
+              <button className={styles.sickSlideshow} onClick={this.slideshow}>{currentStateSlide}</button>
+              <button className={styles.slickAddInterval} onClick={this.addInterval}>+0.25s</button>
+              <button className={styles.slickRemoveInterval} onClick={this.removeInterval}>-0.25s</button>
+              {/* <button className={styles.sickStopSlideshow} onClick={this}>Stop</button> */}
 
               <Slider slides={slides[currentSlide]} />
 
