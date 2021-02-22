@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
 import styles from './ImageCarusel.module.scss'
+import ButtonsControl from './ButtonsControl'
 import Slider from './Slider'
 
-class ImageCarusel extends Component {
+
+export default class ImageCarusel extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -119,12 +121,8 @@ class ImageCarusel extends Component {
         <div className={styles.slidesCarusel}>
           <div className={styles.container}>
             <div className={styles.slides}>
-              <button className={styles.slickPrev} onClick={this.prevSlide} >&#8249;</button>
-              <button className={styles.slickNext} onClick={this.nextSlide}>&#8250;</button>
-              <button className={styles.sickSlideshow} onClick={this.slideshow}>{currentStateSlide}</button>
-              <button className={styles.slickAddInterval} onClick={this.addInterval}>+0.5s</button>
-              <button className={styles.slickRemoveInterval} onClick={this.removeInterval}>-0.5s</button>
 
+              <ButtonsControl currentStateSlide={currentStateSlide} nextSlide={this.nextSlide} prevSlide={this.prevSlide} slideshow={this.slideshow} addInterval={this.addInterval} removeInterval={this.removeInterval} />
               <Slider slides={slides[currentSlide]} />
 
             </div>
@@ -134,5 +132,3 @@ class ImageCarusel extends Component {
     )
   }
 }
-
-export default ImageCarusel;

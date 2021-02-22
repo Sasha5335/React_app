@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import styles from './Slider.module.scss'
+import PropTypes from "prop-types"
+
 
 export default class Slider extends Component {
   constructor(props) {
@@ -15,8 +17,6 @@ export default class Slider extends Component {
     }
     card.requestFullscreen();
   }
-
-
 
   render() {
     const { slides } = this.props;
@@ -34,3 +34,7 @@ export default class Slider extends Component {
     )
   }
 }
+
+Slider.propTypes = {
+  fullScreen: PropTypes.func,
+};
