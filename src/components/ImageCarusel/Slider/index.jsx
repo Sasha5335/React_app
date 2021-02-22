@@ -8,13 +8,23 @@ export default class Slider extends Component {
     }
   }
 
+  fullScreen = () => {
+    const card = document.getElementById("cardImg");
+    if (document.fullscreenElement) {
+      document.exitFullscreen()
+    }
+    card.requestFullscreen();
+  }
+
+
+
   render() {
     const { slides } = this.props;
     return (
       <>
         <div className={styles.slidesWrapper} >
           <picture>
-            <img className={styles.cardImg} src={slides.src} alt={slides.title} />
+            <img id="cardImg" className={styles.cardImg} src={slides.src} alt={slides.title} onClick={this.fullScreen} />
             <h3 className={styles.cardTitle}>{slides.title}</h3>
             <p className={styles.cardDescription}>{slides.description}</p>
             <p><a href="#">Learn More &gt;</a></p>

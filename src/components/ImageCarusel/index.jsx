@@ -8,7 +8,7 @@ class ImageCarusel extends Component {
     this.state = {
       slides: [
         {
-          src: 'https://hubblesite.org/files/live/sites/hubble/files/home/hubble-30th-anniversary/images/_images/hubble_30th_images/hubble-30th-hh24.jpg?t=tn1200',
+          src: 'https://hubblesite.org/files/live/sites/hubble/files/home/hubble-30th-anniversary/images/_images/hubble_30th_images/hubble-30th-cosmic-reef-2400x1200.jpg?t=tn1200',
           title: "HH24 'light saber'",
           description: "The newborn star in Herbig-Haro 24 (HH 24) is hidden from direct view, but jets blasting out along its rotation axis create a series of glowing shock fronts, revealing the new star’s presence.",
         },
@@ -62,10 +62,8 @@ class ImageCarusel extends Component {
 
   slideshow = () => {
     const { playSlide, timer, interval } = this.state;
-
     if (playSlide) {
       clearInterval(timer);
-      console.log(timer)
       this.setState({
         playSlide: false,
         interval: 1000,
@@ -93,7 +91,7 @@ class ImageCarusel extends Component {
         this.nextSlide();
       }, interval);
       this.setState({
-        interval: interval + 1000,
+        interval: interval + 500,
         timer: newTimer,
       })
     }
@@ -108,7 +106,7 @@ class ImageCarusel extends Component {
         this.nextSlide();
       }, interval);
       this.setState({
-        interval: interval - 1000,
+        interval: interval - 500,
         timer: newTimer,
       })
     }
@@ -124,9 +122,8 @@ class ImageCarusel extends Component {
               <button className={styles.slickPrev} onClick={this.prevSlide} >&#8249;</button>
               <button className={styles.slickNext} onClick={this.nextSlide}>&#8250;</button>
               <button className={styles.sickSlideshow} onClick={this.slideshow}>{currentStateSlide}</button>
-              <button className={styles.slickAddInterval} onClick={this.addInterval}>+0.25s</button>
-              <button className={styles.slickRemoveInterval} onClick={this.removeInterval}>-0.25s</button>
-              {/* <button className={styles.sickStopSlideshow} onClick={this}>Stop</button> */}
+              <button className={styles.slickAddInterval} onClick={this.addInterval}>+0.5s</button>
+              <button className={styles.slickRemoveInterval} onClick={this.removeInterval}>-0.5s</button>
 
               <Slider slides={slides[currentSlide]} />
 
