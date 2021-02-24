@@ -16,20 +16,17 @@ const App = (props) => {
         </nav>
 
         <Switch>
-          <Route exact path='/'>
-            <Home />
-          </Route>
+          <Route exact path='/' component={Home} /> /*отрендерить только ОДИН компонент за раз*/
         </Switch>
 
         <Switch>
-          <Route path='/about'>
-            <About />
-          </Route>
+          <Route path='/about' component={About} /> /*отрендерить только ОДИН компонент за раз*/
         </Switch>
 
         <Switch>
           <Route path='/contacts'>
-            <Contacts />
+            <Contacts />  /*отрендерить несколько компонентов за раз*/
+            <Adress />    /*отрендерить несколько компонентов за раз*/
           </Route>
         </Switch>
 
@@ -39,6 +36,13 @@ const App = (props) => {
 }
 
 const Home = () => <div>Home</div>;
-const About = () => <div>About</div>;
+const About = (props) => {
+  console.log(props);
+  setTimeout(() => {
+    props.history.push('/')   //перенаправление на другую страницу по истечению 5 секунд
+  }, 5000)
+  return <div>About</div>;
+}
 const Contacts = () => <div>Contacts</div>;
+const Adress = () => <div>Adress</div>;
 export default App;
