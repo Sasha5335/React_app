@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import UsersLoader from './components/UserLoader'
+import WindowSize from './components/WindowSize'
 
 
 function App(props) {
   return (
     <>
-      <UsersLoader />
+      <WindowSize />
     </>
   );
 }
