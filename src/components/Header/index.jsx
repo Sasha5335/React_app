@@ -1,49 +1,46 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Switch, Route, Link } from 'react-router-dom';
 import styles from './Header.module.scss';
-import cx from 'classnames';
 
 class Header extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      currentPage: "/sign-up",
-      currentBtn: "Включено",
-      isToggleOn: true
+      selectedPage: true,
 
     };
-    this.handleClick = this.handleClick.bind(this);
   }
 
-
-  handleClick() {
-    this.setState({
-    })
-  }
-
+  switchPage = () => {
+    const { selectedPage } = this.state;
+    selectedPage
+      ? this.setState({ selectedPage: !selectedPage })
+      : this.setState({ selectedPage: !selectedPage })
+  };
 
   render() {
-    const { currentPage, currentBtn } = this.state;
-
+    const { selectedPage } = this.state;
 
     return (
-      <header>
-        <div className={styles.container}>
+      <>
+        <header>
+          <div className={styles.container}>
 
-          <div className={styles.signupHeader}>
+            <div className={styles.signupHeader}>
 
-            <div className={styles.logo}>
-              <a href="#"><img src="https://www.squadhelp.com/img/logo.png" /></a>
-            </div>
+              <div className={styles.logo}>
+                <Link to='/'><img src="https://www.squadhelp.com/img/logo.png" /></Link>
+              </div>
 
-            <div onClick={this.handleClick} className={styles.loginButton}>
-              <Link onClick={() => this.handleClick()} to={currentPage}> {this.state.currentBtn ? 'Включено' : 'Выключено'}</Link>
+              <div className={styles.loginButton} onClick={() => this.switchPage()}>
+                {selectedPage ? <Link to='/sign-in'>Signin</Link> : <Link to='/sign-up'>Signup</Link>}
+              </div>
+
             </div>
 
           </div>
-
-        </div>
-      </header >
+        </header >
+      </>
     );
   }
 }

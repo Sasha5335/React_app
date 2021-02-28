@@ -5,18 +5,20 @@ import { Formik, Form, Field, ErrorMessage } from 'formik';
 
 const Input = ({ name, ...rest }) => {
   return (
-    <label>
-      <Field name={name}>
-        {({ field, form, meta }) => {
-          const classNames = cx(styles.input, { [styles.validInput]: meta.touched && !meta.error, [styles.errorInput]: meta.touched && meta.error });
+    <>
+      <label>
+        <Field name={name}>
+          {({ field, form, meta }) => {
+            const classNames = cx(styles.input, { [styles.validInput]: meta.touched && !meta.error, [styles.errorInput]: meta.touched && meta.error });
 
-          return (
-            <input type='text' {...field} className={classNames} {...rest} />
-          );
-        }}
-      </Field>
-      <ErrorMessage name={name} component='span' />
-    </label>
+            return (
+              <input type='text' {...field} className={classNames} {...rest} />
+            );
+          }}
+        </Field>
+        <ErrorMessage name={name} component='span' />
+      </label>
+    </>
   );
 };
 

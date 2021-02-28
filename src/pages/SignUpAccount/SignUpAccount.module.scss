@@ -1,0 +1,33 @@
+@import '../../common/styles/templates';
+
+.signupContainer {
+  margin-top: 125px;
+  text-align: center;
+}
+
+.container {
+  @extend %container;
+}
+
+.signupInfo {}
+
+.signupInfo h2 {
+  font-size: 38px;
+  font-weight: 600;
+  letter-spacing: 0;
+}
+
+.signupInfo h4 {
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 27px;
+  width: 88%;
+  margin: 11px auto 13px auto;
+}
+
+.formWrapper {
+  @extend %flex-center;
+  justify-content: space-between;
+  margin-top: 26px;
+  padding: 0px 49px 0 45px;
+}

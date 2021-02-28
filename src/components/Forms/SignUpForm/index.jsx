@@ -20,8 +20,12 @@ const SignInForm = props => {
       {formikProps => {
         return (
           <Form>
-            <Input name='email' placeholder='Email' />
+            <Input name='firstName' placeholder='First name' />
+            <Input name='lastName' placeholder='Last name' />
+            <Input name='displayName' placeholder='Display Name' />
+            <Input name='email' placeholder="Email Address" />
             <Input name='password' type='password' placeholder='Password' />
+            <Input name='password' type='password' placeholder="Password Confirmation" />
             <Field type='submit' value='Submit' />
           </Form>
         );

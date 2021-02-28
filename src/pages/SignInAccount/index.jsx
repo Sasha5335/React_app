@@ -2,7 +2,7 @@ import React from 'react';
 // import styles from './SignInAccaunt.module.scss'
 import SignInForm from '../../components/Forms/SignInForm';
 
-const SignInAccaunt = props => {
+const SignInAccount = props => {
   const onSubmit = values => {
   };
   return (
@@ -21,4 +21,4 @@ const SignInAccaunt = props => {
   );
 };
 
-export default SignInAccaunt;
+export default SignInAccount;
