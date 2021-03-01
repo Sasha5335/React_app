@@ -18,15 +18,28 @@ const SignInForm = props => {
       {formikProps => {
         return (
 
-          <Form classnames='form'>
+          <Form classnames='signUpForm'>
 
-            <div className='inputGroup'>
-              <Input name='firstName' placeholder='First name' />
-              <Input name='lastName' placeholder='Last name' />
-              <Input name='displayName' placeholder='Display Name' />
-              <Input name='email' placeholder="Email Address" />
-              <Input name='password' type='password' placeholder='Password' />
-              <Input name='password' type='password' placeholder="Password Confirmation" />
+            <div className='signUpInputGroup'>
+
+              <div className='firstName errorInputMasage'>
+                <Input name='firstName' placeholder='First name' />
+              </div>
+              <div className='lastName errorInputMasage'>
+                <Input name='lastName' placeholder='Last name' />
+              </div>
+              <div className='displayName errorInputMasage'>
+                <Input name='displayName' placeholder='Display Name' />
+              </div>
+              <div className='email errorInputMasage'>
+                <Input name='email' placeholder="Email Address" />
+              </div>
+              <div className='password errorInputMasage'>
+                <Input name='password' type='password' placeholder='Password' />
+              </div>
+              <div className='passwordConfirm errorInputMasage'>
+                <Input name='password' type='password' placeholder="Password Confirmation" />
+              </div>
             </div>
 
             <div id="checkboxGroup">
@@ -59,10 +72,9 @@ const SignInForm = props => {
               <Field type='submit' value='Create account' />
             </div>
 
-            <div class="fineprint">
+            <div className="link">
               <p>By clicking this button, you agree to our <a class="terms" href="https://www.squadhelp.com/Terms&amp;Conditions" target="_blank">Terms of Service</a></p>
             </div>
-
 
           </Form>
         );

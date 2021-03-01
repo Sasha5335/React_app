@@ -24,12 +24,29 @@
   left: 0;
 }
 
-%lightTheme {
-  background-color: white;
-  color: black;
+%errorMessage {
+  display: block;
+  position: absolute;
+  max-width: 260px;
+  margin-top: 5px;
+  margin-left: 20px;
+  padding: 7px 15px;
+  font-size: 12.5px;
+  color: #f5263b;
+  background-color: #FFEEF0;
+  border: 1px solid #f5263b;
+  border-radius: 6px;
+  z-index: 10;
 }
 
-%darkTheme {
-  background-color: black;
-  color: white;
+%errorMessage_before {
+  content: '';
+  position: absolute;
+  bottom: 100%;
+  left: 10px;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 10px 10px 10px;
+  border-color: transparent transparent #f5263b transparent;
 }

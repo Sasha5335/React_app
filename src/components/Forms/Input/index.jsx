@@ -20,7 +20,7 @@ const Input = ({ name, ...rest }) => {
             );
           }}
         </Field>
-        <ErrorMessage name={name} component='span' />
+        <ErrorMessage name={name} component='span' className='errorMessage' />
       </label>
     </>
   );
