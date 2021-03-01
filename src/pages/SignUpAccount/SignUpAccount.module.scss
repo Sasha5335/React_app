@@ -1,7 +1,10 @@
 @import '../../common/styles/templates';
 
+
 .signupContainer {
-  margin-top: 125px;
+  max-width: 720px;
+  margin: 80px auto 0;
+  padding: 10px 20px 30px;
   text-align: center;
 }
 
@@ -12,17 +15,17 @@
 .signupInfo {}
 
 .signupInfo h2 {
-  font-size: 38px;
-  font-weight: 600;
-  letter-spacing: 0;
+  margin: 5px;
+  font-size: 42px;
+  font-weight: 700;
 }
 
 .signupInfo h4 {
-  font-size: 18px;
+  width: 70%;
+  margin: 10px auto 13px auto;
+  font-size: 20px;
   font-weight: 500;
   line-height: 27px;
-  width: 88%;
-  margin: 11px auto 13px auto;
 }
 
 .formWrapper {
@@ -31,3 +34,5 @@
   margin-top: 26px;
   padding: 0px 49px 0 45px;
 }
+
+.formWrapper input {}

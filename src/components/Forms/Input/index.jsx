@@ -9,7 +9,11 @@ const Input = ({ name, ...rest }) => {
       <label>
         <Field name={name}>
           {({ field, form, meta }) => {
-            const classNames = cx(styles.input, { [styles.validInput]: meta.touched && !meta.error, [styles.errorInput]: meta.touched && meta.error });
+            const classNames = cx(styles.input,
+              {
+                [styles.validInput]: meta.touched && !meta.error,
+                [styles.errorInput]: meta.touched && meta.error
+              });
 
             return (
               <input type='text' {...field} className={classNames} {...rest} />
