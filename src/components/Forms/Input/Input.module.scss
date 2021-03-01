@@ -1,3 +1,5 @@
+@import '../../../common/styles/templates';
+
 label .input {
   margin: 5px 13px;
 }
@@ -14,4 +16,13 @@ input {
 .errorInput {
   border: 2px solid #F97583;
   position: relative;
+}
+
+.errorMessage {
+  @extend %errorMessage;
+
+  &::before {
+    @extend %errorMessage_before;
+  }
+
 }

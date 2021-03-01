@@ -11,7 +11,7 @@ export const EMAIL_SCHEMA = Yup.string()
 export const PASSWORD_SCHEMA = Yup.string()
   .matches(
     /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,}$/,
-    'Password must contain 8 char and so on...'
+    'Password must contain 8 char'
   )
   .required();
 

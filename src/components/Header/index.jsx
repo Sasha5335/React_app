@@ -1,25 +1,26 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Switch, Route, Link } from 'react-router-dom';
+import { BrowserRouter, Switch, Route, Link, NavLink } from 'react-router-dom';
 import styles from './Header.module.scss';
 
 class Header extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      selectedPage: true,
+      isSelectedPage: true,
 
     };
   }
 
   switchPage = () => {
-    const { selectedPage } = this.state;
-    selectedPage
-      ? this.setState({ selectedPage: !selectedPage })
-      : this.setState({ selectedPage: !selectedPage })
+    const { isSelectedPage } = this.state;
+    isSelectedPage
+      ? this.setState({ isSelectedPage: !isSelectedPage })
+      : this.setState({ isSelectedPage: !isSelectedPage })
   };
 
   render() {
-    const { selectedPage } = this.state;
+    const { isSelectedPage } = this.state;
+    console.log(this.props.location)
 
     return (
       <>
@@ -33,7 +34,10 @@ class Header extends Component {
               </div>
 
               <div className={styles.loginButton} onClick={() => this.switchPage()}>
-                {selectedPage ? <Link to='/sign-in'>Signin</Link> : <Link to='/sign-up'>Signup</Link>}
+                {isSelectedPage ? <Link to='/sign-in'>Signin</Link> : <Link to='/sign-up'>Signup</Link>}
+
+
+
               </div>
 
             </div>
@@ -47,3 +51,5 @@ class Header extends Component {
 
 
 export default Header;
+
+

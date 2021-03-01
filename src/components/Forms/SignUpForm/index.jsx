@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import styles from './SignUpForm.module.scss';
-import './SignUpForm.scss';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { SIGN_IN_SCHEMA } from '../../../utils/validationInput';
 import Input from '../Input';
@@ -18,33 +17,20 @@ const SignInForm = props => {
       {formikProps => {
         return (
 
-          <Form classnames='signUpForm'>
+          <Form className={styles.signUpForm}>
 
-            <div className='signUpInputGroup'>
-
-              <div className='firstName errorInputMasage'>
-                <Input name='firstName' placeholder='First name' />
-              </div>
-              <div className='lastName errorInputMasage'>
-                <Input name='lastName' placeholder='Last name' />
-              </div>
-              <div className='displayName errorInputMasage'>
-                <Input name='displayName' placeholder='Display Name' />
-              </div>
-              <div className='email errorInputMasage'>
-                <Input name='email' placeholder="Email Address" />
-              </div>
-              <div className='password errorInputMasage'>
-                <Input name='password' type='password' placeholder='Password' />
-              </div>
-              <div className='passwordConfirm errorInputMasage'>
-                <Input name='password' type='password' placeholder="Password Confirmation" />
-              </div>
+            <div className={styles.signUpInputGroup}>
+              <Input name='firstName' placeholder='First name' />
+              <Input name='lastName' placeholder='Last name' />
+              <Input name='displayName' placeholder='Display Name' />
+              <Input name='email' placeholder="Email Address" />
+              <Input name='password' type='password' placeholder='Password' />
+              <Input name='password' type='password' placeholder="Password Confirmation" />
             </div>
 
             <div id="checkboxGroup">
 
-              <div className='radioBoxForm'>
+              <div className={styles.radioBoxForm}>
                 <label>
                   <Field type="radio" name="checked" value="One" />
                   Join As a Buyer <br />
@@ -52,7 +38,7 @@ const SignInForm = props => {
                 </label>
               </div>
 
-              <div className='radioBoxForm'>
+              <div className={styles.radioBoxForm}>
                 <label>
                   <Field type="radio" name="checked" value="Two" />
                   Join As a Creative or Marketplace Seller <br />
@@ -60,7 +46,7 @@ const SignInForm = props => {
                 </label>
               </div>
 
-              <div className='checkBoxForm'>
+              <div className={styles.checkBoxForm}>
                 <label>
                   <Field type="checkbox" name="checked" value="Tree" />
                   Allow Squadhelp to send marketing/promotional offers from time to time
@@ -68,11 +54,11 @@ const SignInForm = props => {
               </div>
             </div>
 
-            <div className='btn'>
+            <div className={styles.btn}>
               <Field type='submit' value='Create account' />
             </div>
 
-            <div className="link">
+            <div className={styles.link}>
               <p>By clicking this button, you agree to our <a class="terms" href="https://www.squadhelp.com/Terms&amp;Conditions" target="_blank">Terms of Service</a></p>
             </div>
 
@@ -81,7 +67,6 @@ const SignInForm = props => {
       }}
     </Formik>
   );
-
 };
 
 export default SignInForm;
