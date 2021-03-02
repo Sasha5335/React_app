@@ -21,8 +21,6 @@ const SignUpAccount = props => {
             </div>
           </div>
 
-
-
         </div>
       </section >
     </>

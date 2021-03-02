@@ -4,6 +4,7 @@ import { Formik, Form, Field } from 'formik';
 import { SIGN_UP_SCHEMA } from '../../../utils/validationInput';
 import Input from '../Input';
 
+
 const initialValues = {
   firstName: '',
   lastName: '',
@@ -11,7 +12,6 @@ const initialValues = {
   email: '',
   password: '',
   passwordConfirm: '',
-  role: '',
   checkbox: false,
 };
 
@@ -19,13 +19,17 @@ const SignInForm = props => {
 
   return (
     <Formik
-      initialValues={initialValues} validationSchema={SIGN_UP_SCHEMA} onSubmit={props.onSubmit} >
+      initialValues={initialValues}
+      validationSchema={SIGN_UP_SCHEMA}
+      onSubmit={props.onSubmit}
+    // onSubmit={(value) => { console.log(value) }}
+    >
       {formikProps => {
         return (
 
           <Form className={styles.signUpForm}>
 
-            <div className={styles.signUpInputGroup}>
+            <div className={styles.signUpInput}>
               <Input name='firstName' placeholder='First name' />
               <Input name='lastName' placeholder='Last name' />
               <Input name='displayName' placeholder='Display Name' />
@@ -65,7 +69,7 @@ const SignInForm = props => {
             </div>
 
             <div className={styles.link}>
-              <p>By clicking this button, you agree to our <a class="terms" href="https://www.squadhelp.com/Terms&amp;Conditions" target="_blank">Terms of Service</a></p>
+              <p>By clicking this button, you agree to our <a href="https://www.squadhelp.com/Terms&amp;Conditions" target="_blank">Terms of Service</a></p>
             </div>
 
           </Form>

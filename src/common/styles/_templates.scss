@@ -34,7 +34,7 @@
   font-size: 12.5px;
   color: #A01E1D;
   background-color: #FFEEF0;
-  border: 1px solid #A01E1D;
+  border: 1px solid #F97583;
   border-radius: 6px;
   z-index: 10;
 }
@@ -48,5 +48,17 @@
   height: 0;
   border-style: solid;
   border-width: 0 10px 10px 10px;
-  border-color: transparent transparent #A01E1D transparent;
+  border-color: transparent transparent #F97583 transparent;
+}
+
+%btn {
+  min-width: 95%;
+  margin-top: 9px;
+  padding: 23px;
+  font-size: 17px;
+  font-weight: 600;
+  color: white;
+  border: none;
+  background-color: #28D2D0;
+  border-radius: 4px;
 }

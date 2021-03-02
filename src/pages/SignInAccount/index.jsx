@@ -1,5 +1,5 @@
 import React from 'react';
-// import styles from './SignInAccaunt.module.scss'
+import styles from './SignInAccount.module.scss'
 import SignInForm from '../../components/Forms/SignInForm';
 
 const SignInAccount = props => {
@@ -7,16 +7,21 @@ const SignInAccount = props => {
   };
   return (
     <>
-      <div class="container signup">
-        <div class="signup_container">
-          <div class="signup_info">
+      <section className={styles.signinContainer}>
+        <div className={styles.container}>
+
+          <div className={styles.signinInfo}>
             <h2>LOGIN TO YOUR ACCOUNT</h2>
           </div>
 
-          <SignInForm onSubmit={onSubmit} />
+          <div className={styles.signinForm}>
+            <div className={styles.formWrapper}>
+              <SignInForm onSubmit={onSubmit} />
+            </div>
+          </div>
 
         </div>
-      </div>
+      </section >
     </>
   );
 };

@@ -1,5 +1,5 @@
 import React from 'react';
-import './style.css';
+import './style.css'
 
 
 const Home = props => {
@@ -8,12 +8,12 @@ const Home = props => {
       <section>
         <div className="container"></div>
         <div id="cube-loader">
-          <div class="caption">
-            <div class="cube-loader">
-              <div class="cube loader-1"></div>
-              <div class="cube loader-2"></div>
-              <div class="cube loader-4"></div>
-              <div class="cube loader-3"></div>
+          <div className="caption">
+            <div className="cube-loader">
+              <div className="cube loader-1"></div>
+              <div className="cube loader-2"></div>
+              <div className="cube loader-4"></div>
+              <div className="cube loader-3"></div>
             </div>
           </div>
         </div>
