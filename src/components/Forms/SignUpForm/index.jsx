@@ -1,19 +1,25 @@
 import React, { Component } from 'react';
 import styles from './SignUpForm.module.scss';
-import { Formik, Form, Field, ErrorMessage } from 'formik';
-import { SIGN_IN_SCHEMA } from '../../../utils/validationInput';
+import { Formik, Form, Field } from 'formik';
+import { SIGN_UP_SCHEMA } from '../../../utils/validationInput';
 import Input from '../Input';
 
 const initialValues = {
+  firstName: '',
+  lastName: '',
+  displayName: '',
   email: '',
   password: '',
+  passwordConfirm: '',
+  role: '',
+  checkbox: false,
 };
 
 const SignInForm = props => {
 
   return (
     <Formik
-      initialValues={initialValues} validationSchema={SIGN_IN_SCHEMA} onSubmit={props.onSubmit} >
+      initialValues={initialValues} validationSchema={SIGN_UP_SCHEMA} onSubmit={props.onSubmit} >
       {formikProps => {
         return (
 
@@ -25,14 +31,14 @@ const SignInForm = props => {
               <Input name='displayName' placeholder='Display Name' />
               <Input name='email' placeholder="Email Address" />
               <Input name='password' type='password' placeholder='Password' />
-              <Input name='password' type='password' placeholder="Password Confirmation" />
+              <Input name='passwordConfirm' type='password' placeholder="Password Confirmation" />
             </div>
 
             <div id="checkboxGroup">
 
               <div className={styles.radioBoxForm}>
                 <label>
-                  <Field type="radio" name="checked" value="One" />
+                  <Field name="radio" type="radio" />
                   Join As a Buyer <br />
                   <span> I am looking for a Name, Logo or Tagline for my business, brand or product.</span>
                 </label>
@@ -40,7 +46,7 @@ const SignInForm = props => {
 
               <div className={styles.radioBoxForm}>
                 <label>
-                  <Field type="radio" name="checked" value="Two" />
+                  <Field name="radio" type="radio" />
                   Join As a Creative or Marketplace Seller <br />
                   <span>I plan to submit name ideas, Logo designs or sell names in Domain Marketplace.</span>
                 </label>
@@ -48,14 +54,14 @@ const SignInForm = props => {
 
               <div className={styles.checkBoxForm}>
                 <label>
-                  <Field type="checkbox" name="checked" value="Tree" />
+                  <Field name="checkbox" type="checkbox" />
                   Allow Squadhelp to send marketing/promotional offers from time to time
                 </label>
               </div>
             </div>
 
             <div className={styles.btn}>
-              <Field type='submit' value='Create account' />
+              <Field name="submit" type='submit' value='Create account' />
             </div>
 
             <div className={styles.link}>

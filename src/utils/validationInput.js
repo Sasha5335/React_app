@@ -1,19 +1,43 @@
 import * as Yup from 'yup';
 
 export const NAME_SCHEMA = Yup.string()
-  .matches(/^[A-Z][a-z]{1,64}$/, 'Name must be a valid name')
-  .required();
+  .required('No name provided.')
+  .matches(/[A-Z]/, 'The name must start with a capital letter.')
+  .min(2, 'Name is too short - should be 2 chars minimum.')
+  .matches(/[a-z]/, 'Name must be a valid')
+
+export const LASTNAME_SCHEMA = Yup.string()
+  .required('No last name provided.')
+  .matches(/[A-Z]/, 'The last name must start with a capital letter.')
+  .min(2, 'Last name is too short - should be 2 chars minimum.')
+  .matches(/[a-z]/, 'Last name must be a valid')
+
+export const DISPLAYNAME_SCHEMA = Yup.string()
+  .required('No display name provided.')
+  .min(2, 'Display name is too short - should be 2 chars minimum.')
+  .matches(/[a-z]/, 'Display name must be a valid')
 
 export const EMAIL_SCHEMA = Yup.string()
-  .email('Test check for email')
-  .required();
+  .required('No email provided.')
+  .email('Email is not correct')
 
 export const PASSWORD_SCHEMA = Yup.string()
-  .matches(
-    /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,}$/,
-    'Password must contain 8 char'
-  )
-  .required();
+  .required('No password provided.')
+  .min(8, 'Password is too short - should be 8 chars minimum.')
+  .matches(/[a-zA-Z]/, 'Password can only contain Latin letters.')
+  .matches(/[0-9]{2,}/, 'Password must contain numbers.')
+
+
+export const PASSWORDCONFIRM_SCHEMA = Yup.mixed().test('match', 'Emails do not match',
+  function (password) {
+    console.log(password)
+    console.log(this.options.context)
+    return password === this.options.context.passwordConfirm
+  })
+
+
+
+export const CHECKBOX_SCHEMA = Yup.boolean()
 
 export const SIGN_IN_SCHEMA = Yup.object({
   email: EMAIL_SCHEMA,
@@ -22,7 +46,11 @@ export const SIGN_IN_SCHEMA = Yup.object({
 
 export const SIGN_UP_SCHEMA = Yup.object({
   firstName: NAME_SCHEMA,
-  lastName: NAME_SCHEMA,
+  lastName: LASTNAME_SCHEMA,
+  displayName: DISPLAYNAME_SCHEMA,
   email: EMAIL_SCHEMA,
   password: PASSWORD_SCHEMA,
+  passwordConfirm: '',
+  role: '',
+  checkbox: CHECKBOX_SCHEMA,
 });
