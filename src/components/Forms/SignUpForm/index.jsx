@@ -22,7 +22,7 @@ const SignInForm = props => {
       initialValues={initialValues}
       validationSchema={SIGN_UP_SCHEMA}
       onSubmit={props.onSubmit}
-    // onSubmit={(value) => { console.log(value) }}
+    // onSubmit={(value) => { console.log(value) }} 
     >
       {formikProps => {
         return (

@@ -31,7 +31,6 @@ export const PASSWORDCONFIRM_SCHEMA = Yup.string()
   .required('No password confirm provided.')
   .oneOf([Yup.ref('password')], 'Password mismatch.')
 
-export const CHECKBOX_SCHEMA = Yup.boolean()
 
 export const SIGN_IN_SCHEMA = Yup.object({
   email: EMAIL_SCHEMA,
@@ -45,6 +44,5 @@ export const SIGN_UP_SCHEMA = Yup.object({
   email: EMAIL_SCHEMA,
   password: PASSWORD_SCHEMA,
   passwordConfirm: PASSWORDCONFIRM_SCHEMA,
-  checkbox: CHECKBOX_SCHEMA,
 });
 
