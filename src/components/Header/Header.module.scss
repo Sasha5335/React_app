@@ -13,8 +13,8 @@
 
 .loginButton {
   min-width: 95px;
-  margin: 12px 20px;
   padding: 10px;
+  margin: 12px 20px;
   border: 1px solid rgba(255, 255, 255, 0.77);
   background: #3ea9f5;
   text-align: center;
@@ -26,6 +26,7 @@
 
 .loginButton a {
   color: white;
+  padding: 6px 12px;
   background: #3ea9f5;
   font-size: 22px;
   font-weight: 600;

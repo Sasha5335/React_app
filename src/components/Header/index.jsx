@@ -1,18 +1,7 @@
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import styles from './Header.module.scss';
 
 const Header = () => {
-
-  const switchPage = (location) => {
-    if (location.pathname === '/sign-up') {
-      return (
-        <Link to='/sign-in'>Signin</Link>
-      );
-    }
-    return (
-      <Link to='/sign-up'>Signup</Link>
-    );
-  }
 
   return (
     <>
@@ -26,7 +15,7 @@ const Header = () => {
             </div>
 
             <div className={styles.loginButton}>
-              {switchPage(useLocation())}
+              <Link to='/todo'>Todo</Link>
             </div>
 
           </div>
