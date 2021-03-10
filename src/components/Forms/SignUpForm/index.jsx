@@ -12,6 +12,7 @@ const initialValues = {
   email: '',
   password: '',
   passwordConfirm: '',
+  role: '',
   checkbox: false,
 };
 
@@ -42,7 +43,7 @@ const SignInForm = props => {
 
               <div className={styles.radioBoxForm}>
                 <label>
-                  <Field name="radio" type="radio" />
+                  <Field name="radio" type="radio" value="buyer" checked />
                   Join As a Buyer <br />
                   <span> I am looking for a Name, Logo or Tagline for my business, brand or product.</span>
                 </label>
@@ -50,7 +51,7 @@ const SignInForm = props => {
 
               <div className={styles.radioBoxForm}>
                 <label>
-                  <Field name="radio" type="radio" />
+                  <Field name="radio" type="radio" value="creative" />
                   Join As a Creative or Marketplace Seller <br />
                   <span>I plan to submit name ideas, Logo designs or sell names in Domain Marketplace.</span>
                 </label>

@@ -31,6 +31,8 @@ export const PASSWORDCONFIRM_SCHEMA = Yup.string()
   .required('No password confirm provided.')
   .oneOf([Yup.ref('password')], 'Password mismatch.')
 
+export const ROLE_SHEMA = Yup.string().oneOf(['Buyer', 'Creative']).required()
+
 
 export const SIGN_IN_SCHEMA = Yup.object({
   email: EMAIL_SCHEMA,
@@ -44,5 +46,6 @@ export const SIGN_UP_SCHEMA = Yup.object({
   email: EMAIL_SCHEMA,
   password: PASSWORD_SCHEMA,
   passwordConfirm: PASSWORDCONFIRM_SCHEMA,
+  role: ROLE_SHEMA,
 });
 
