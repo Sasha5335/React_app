@@ -14,13 +14,15 @@ const ToDoPage = props => {
     const newTodo = {
       body: values.body,
       id: Date.now(),
-      isDone: false,
     };
-    setTodoArray([...todoArray, newTodo]);
+    if (newTodo.body !== '') {
+      setTodoArray([...todoArray, newTodo]);
+
+    }
+    return
   };
 
   const deleteTask = (id) => {
-    console.log(id);
     const filteredTodos = todoArray.filter(
       currentTask => currentTask.id !== id
     );
@@ -32,7 +34,10 @@ const ToDoPage = props => {
       <div className={styles.container}>
         <h1>ToDo list</h1>
 
-        <Formik initialValues={{ body: '' }} onSubmit={addTask}>
+        <Formik initialValues={{ body: '' }} onSubmit={(values, formikBag) => {
+          addTask(values);
+          formikBag.resetForm();
+        }}>
           <Form>
             <Field name='body' />
             <ErrorMessage name='body' component='div' />
@@ -45,7 +50,7 @@ const ToDoPage = props => {
         <TaskList todoArray={todoArray} deleteTask={deleteTask} />
 
       </div>
-    </div>
+    </div >
   );
 };
 

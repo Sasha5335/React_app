@@ -1,3 +1,7 @@
+$main-background-color: #3EA9F5;
+$background-color-hover: #dddddd;
+$font-color: #363636;
+
 %container {
   max-width: 1100px;
   margin: 0 auto;
@@ -9,13 +13,6 @@
   align-items: center;
 }
 
-%one-liner {
-  white-space: no-wrap;
-  overflow: hidden;
-  max-width: 100%;
-  text-overflow: elipsis;
-}
-
 %absolute-cover {
   position: absolute;
   top: 0;
@@ -24,42 +21,8 @@
   left: 0;
 }
 
-%errorMessage {
-  display: block;
-  position: absolute;
-  max-width: 260px;
-  margin-top: 5px;
-  margin-left: 20px;
-  padding: 7px 15px;
-  font-size: 12.5px;
-  color: #A01E1D;
-  background-color: #FFEEF0;
-  border: 1px solid #F97583;
-  border-radius: 6px;
-  z-index: 10;
-}
-
-%errorMessage_before {
-  content: '';
-  position: absolute;
-  bottom: 100%;
-  left: 10px;
-  width: 0;
-  height: 0;
-  border-style: solid;
-  border-width: 0 10px 10px 10px;
-  border-color: transparent transparent #F97583 transparent;
-}
-
-%btn {
-  min-width: 95%;
-  margin-top: 9px;
-  padding: 23px;
-  font-size: 17px;
-  font-weight: 600;
-  color: white;
+%style-none {
+  outline: none;
   border: none;
-  background-color: #28D2D0;
-  border-radius: 4px;
-  cursor: pointer;
+  list-style: none;
 }

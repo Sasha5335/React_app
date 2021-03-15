@@ -12,10 +12,11 @@ const TaskList = (props) => {
 
         {todoArray.map(task => {
           const { id, body } = task;
-          return <article className={styles.todoMasage} key={id}>
-            {body}
 
-            <RemoveTask deleteTask={deleteTask} {...task} />
+          return <article className={styles.todoMasage} key={id}>
+            <div className={styles.todoMasageWrapper}>{body}</div>
+
+            <RemoveTask deleteTask={deleteTask} id={id} />
 
           </article>
         })}

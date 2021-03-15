@@ -1,16 +1,14 @@
-// @import url('https://fonts.googleapis.com/css?family=Nunito&display=swap');
-
-
+@import '../../assets/styles/templates';
 
 .container {
+  @extend %container;
+
   width: 450px;
-  margin: 0 auto;
   margin-top: 50px;
   text-align: center;
-  background-color: #fafafa;
-  min-height: 400px;
+  background-color: #ebebeb;
   font-family: 'Nunito', sans-serif;
-  color: #363636;
+  color: $font-color;
 }
 
 h1 {
@@ -18,35 +16,32 @@ h1 {
 }
 
 input {
-  position: relative;
+  @extend %style-none;
+
   width: 80%;
   padding: 10px 5px;
-  border: 1px solid #363636;
+  border: 1px solid $font-color;
   font-size: 16px;
   border-radius: 5px;
-  background-color: #fff;
-  outline: none;
   box-shadow: 3px 9px 9px rgba(0, 0, 0, .2);
+  position: relative;
 }
 
-.addButton {
-  position: absolute;
-  padding: 7px;
-  outline: none;
-  border: none;
-  top: 253px;
-  transform: translateY(-50%);
-  left: 61.5%;
-  width: 20px;
-  cursor: pointer;
-  z-index: 5;
-}
-
+.addButton,
 .addBtn {
   position: absolute;
   transform: translateY(-50%);
-  right: -2px;
-  width: 23px;
   cursor: pointer;
-  z-index: 5;
+}
+
+.addButton {
+  @extend %style-none;
+
+  top: 253px;
+  left: 61.5%;
+}
+
+.addBtn {
+  width: 23px;
+  right: -10px;
 }

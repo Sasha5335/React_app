@@ -1,27 +1,13 @@
-// @import '../../assets/styles/templates';
-
-// .container {
-//   @extend %container;
-// }
-
-// .signupHeader {
-//   @extend %flex-center;
-//   justify-content: space-between;
-//   margin-top: 26px;
-//   padding: 0px 49px 0 45px;
-// }
-
-.removeButton {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  right: 10px;
-  outline: none;
-  border: none;
-}
+@import '../../assets/styles/templates';
 
 .removeBtn {
-  padding-top: 3px;
+  @extend %style-none;
+
+  position: absolute;
+  top: 50%;
+  right: 10px;
   width: 20px;
+  padding-top: 3px;
+  transform: translateY(-50%);
   cursor: pointer;
 }

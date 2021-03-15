@@ -1,35 +1,29 @@
-// @import '../../assets/styles/templates';
+@import '../../assets/styles/templates';
 
-// .container {
-//   @extend %container;
-// }
-
-// .signupHeader {
-//   @extend %flex-center;
-//   justify-content: space-between;
-//   margin-top: 26px;
-//   padding: 0px 49px 0 45px;
-// }
+.todoArrMasage {
+  height: 500px;
+  padding: 15px 0 15px 15px;
+  overflow-y: scroll
+}
 
 .todoMasage {
-  position: relative;
-  width: 85%;
+  @extend %style-none;
+
+  max-width: 85%;
   margin: 12px auto;
   padding: 10px 5px;
   text-align: left;
-  list-style: none;
-  background-color: #ffffff;
   box-shadow: 3px 9px 9px rgba(0, 0, 0, .2);
   border-radius: 3px;
-  transition: .4s;
+  transition: .3s;
+  position: relative;
 }
 
 .todoMasage:hover {
-  background-color: #dddddd;
+  background-color: $background-color-hover;
 }
 
-
-
-.todoArrMasage {
-  padding: 15px;
+.todoMasageWrapper {
+  max-width: 87%;
+  word-wrap: break-word;
 }
