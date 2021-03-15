@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styles from './ToDoLIst.module.scss'
+import TaskList from '../../components/TaskList'
 import { ErrorMessage, Field, Form, Formik } from 'formik';
-import { mdiBeakerRemoveOutline } from '@mdi/js';
 import Icon from '@mdi/react';
 import { mdiPlus } from '@mdi/js';
 
@@ -19,12 +19,11 @@ const ToDoPage = props => {
     setTodoArray([...todoArray, newTodo]);
   };
 
-  const deleteTask = id => {
-
+  const deleteTask = (id) => {
+    console.log(id);
     const filteredTodos = todoArray.filter(
       currentTask => currentTask.id !== id
     );
-    console.log(todoArray)
     setTodoArray(filteredTodos);
   };
 
@@ -37,20 +36,14 @@ const ToDoPage = props => {
           <Form>
             <Field name='body' />
             <ErrorMessage name='body' component='div' />
-            <button><Icon className={styles.addBtn} onClick={addTask} path={mdiPlus} /></button>
+            <button type='submit' className={styles.addButton}>
+              <Icon className={styles.addBtn} onSubmit={addTask} path={mdiPlus} />
+            </button>
           </Form>
         </Formik>
 
-        <section className={styles.todoArrMasage}>
-          {todoArray.map(task => {
-            const { id, body } = task;
-            return <article className={styles.todoMasage} key={id}>
-              {body}
-              <Icon className={styles.removeBtn} onClick={deleteTask} path={mdiBeakerRemoveOutline} />
-            </article>
-          })}
+        <TaskList todoArray={todoArray} deleteTask={deleteTask} />
 
-        </section>
       </div>
     </div>
   );

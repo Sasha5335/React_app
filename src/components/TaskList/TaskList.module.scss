@@ -1,0 +1,35 @@
+// @import '../../assets/styles/templates';
+
+// .container {
+//   @extend %container;
+// }
+
+// .signupHeader {
+//   @extend %flex-center;
+//   justify-content: space-between;
+//   margin-top: 26px;
+//   padding: 0px 49px 0 45px;
+// }
+
+.todoMasage {
+  position: relative;
+  width: 85%;
+  margin: 12px auto;
+  padding: 10px 5px;
+  text-align: left;
+  list-style: none;
+  background-color: #ffffff;
+  box-shadow: 3px 9px 9px rgba(0, 0, 0, .2);
+  border-radius: 3px;
+  transition: .4s;
+}
+
+.todoMasage:hover {
+  background-color: #dddddd;
+}
+
+
+
+.todoArrMasage {
+  padding: 15px;
+}
