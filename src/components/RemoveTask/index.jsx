@@ -7,13 +7,9 @@ import { mdiBeakerRemoveOutline } from '@mdi/js';
 const RemoveTask = (props) => {
   const { id, deleteTask } = props;
 
-  const onDelete = () => {
-    deleteTask(id);
-  };
-
   return (
     <>
-      <Icon className={styles.removeBtn} onClick={onDelete} path={mdiBeakerRemoveOutline} />
+      <Icon className={styles.removeBtn} onClick={() => { deleteTask(id) }} path={mdiBeakerRemoveOutline} />
     </>
   );
 }
